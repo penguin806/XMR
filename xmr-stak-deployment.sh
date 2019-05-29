@@ -29,9 +29,40 @@ download_and_compile() {
 	scl enable devtoolset-4 "make install"
 }
 
+mod_system_config() {
+
+	cp '/etc/sysctl.conf' '/etc/sysctl.conf'`date '+%Y%m%d'`'.bak'
+	sed -i '/vm.nr_hugepages/d' '/etc/sysctl.conf'
+
+	hugepagesConfFile='/etc/sysctl.d/60-hugepages.conf'
+	if [ -e $hugepagesConfFile ]
+	then
+		cp $hugepagesConfFile $hugepagesConfFile`date '+%Y%m%d'`'.bak'
+	fi
+	echo 'vm.nr_hugepages=128' > $hugepagesConfFile
+	sudo sysctl --system
+	
+	
+	memlockConfFile='/etc/security/limits.d/60-memlock.conf'
+	if [ -e $memlockConfFile ]
+	then
+		cp $memlockConfFile $memlockConfFile`date '+%Y%m%d'`'.bak'
+	fi
+	echo '* - memlock 262144' > $memlockConfFile
+	echo 'root - memlock 262144' >> $memlockConfFile
+	
+	echo 'Large page support and Memlock:'
+	/sbin/sysctl vm.nr_hugepages
+	ulimit -l
+	echo 'Relogin in the session to take effect!'
+}
+
 workDir=`pwd`/snow`date '+%Y%m%d'`
 mkdir $workDir
 cd $workDir
 
 install_dependency
 download_and_compile
+mod_system_config
+
+cd $workDir
