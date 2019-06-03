@@ -11,7 +11,7 @@ install_dependency() {
 	sudo yum -y install git
 	sudo yum -y install centos-release-scl epel-release
 	sudo yum -y install cmake3 devtoolset-4-gcc* hwloc-devel libmicrohttpd-devel openssl-devel make
-	sudo yum -y install cpulimit
+	sudo yum -y install cpulimit screen
 }
 
 _mod_source_code() {
