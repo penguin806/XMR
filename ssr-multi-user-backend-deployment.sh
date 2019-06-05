@@ -19,7 +19,7 @@ easy_install pip
 
 # Download libsodium
 wget https://github.com/jedisct1/libsodium/archive/1.0.18-RELEASE.tar.gz -O libsodium-1.0.18.tar.gz
-tar xvf libsodium-1.0.18.tar.gz && cd libsodium-1.0.18
+tar xvf libsodium-1.0.18.tar.gz && cd libsodium-1.0.18-RELEASE
 ./configure && make -j2 && make install
 echo /usr/local/lib > /etc/ld.so.conf.d/usr_local_lib.conf
 ldconfig
