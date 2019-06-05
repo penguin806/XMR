@@ -33,9 +33,9 @@ cp config.json user-config.json
 pip install -r requirements.txt
 
 # Mod Config File
-sed -i "s/MU_SUFFIX = 'zhaoj.in'/MU_SUFFIX = 'microsoft.com'" userapiconfig.py
-sed -i "s/API_INTERFACE = 'modwebapi'/API_INTERFACE = 'glzjinmod'" userapiconfig.py
-sed -i "s/MYSQL_HOST = '127.0.0.1'/MYSQL_HOST = ' '" userapiconfig.py
-sed -i "s/MYSQL_USER = 'ss'/MYSQL_USER = 'sspanel'" userapiconfig.py
-sed -i "s/MYSQL_PASS = 'ss'/MYSQL_PASS = ' '" userapiconfig.py
-sed -i "s/MYSQL_DB = 'shadowsocks'/MYSQL_DB = 'sspanel'" userapiconfig.py
+sed -i "s/MU_SUFFIX = 'zhaoj.in'/MU_SUFFIX = 'microsoft.com'/" userapiconfig.py
+sed -i "s/API_INTERFACE = 'modwebapi'/API_INTERFACE = 'glzjinmod'/" userapiconfig.py
+sed -i "s/MYSQL_HOST = '127.0.0.1'/MYSQL_HOST = ' '/" userapiconfig.py
+sed -i "s/MYSQL_USER = 'ss'/MYSQL_USER = 'sspanel'/" userapiconfig.py
+sed -i "s/MYSQL_PASS = 'ss'/MYSQL_PASS = ' '/" userapiconfig.py
+sed -i "s/MYSQL_DB = 'shadowsocks'/MYSQL_DB = 'sspanel'/" userapiconfig.py
