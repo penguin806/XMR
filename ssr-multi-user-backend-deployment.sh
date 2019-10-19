@@ -16,6 +16,10 @@ yum install -y wget git screen
 yum -y groupinstall "Development Tools"
 yum -y install python-setuptools
 easy_install pip
+# 20191020 Solve error: Command "python setup.py egg_info" failed with error code 1
+# Solution: https://blog.csdn.net/xysoul/article/details/79195657
+python -m pip install --upgrade --force pip
+pip install setuptools==33.1.1
 
 # Download libsodium
 wget https://github.com/jedisct1/libsodium/archive/1.0.18-RELEASE.tar.gz -O libsodium-1.0.18.tar.gz
