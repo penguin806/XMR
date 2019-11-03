@@ -30,7 +30,7 @@ ldconfig
 cd $workDir
 
 # Download ShadowsocksR (Python Ver)
-git clone git://github.com/penguin806/shadowsocks-manyuser.git
+git clone -b snowmod git://github.com/penguin806/shadowsocks-manyuser.git
 cd shadowsocks-manyuser/
 cp apiconfig.py userapiconfig.py
 cp config.json user-config.json
