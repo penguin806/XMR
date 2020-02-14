@@ -8,7 +8,7 @@
 set -e
 
 workDir='/snow'
-mkdir $workDir
+mkdir -p $workDir
 cd $workDir
 
 # Install Dependency
