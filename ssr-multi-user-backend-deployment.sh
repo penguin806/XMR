@@ -43,3 +43,11 @@ sed -i "s/MYSQL_HOST = '127.0.0.1'/MYSQL_HOST = ' '/" userapiconfig.py
 sed -i "s/MYSQL_USER = 'ss'/MYSQL_USER = 'sspanel'/" userapiconfig.py
 sed -i "s/MYSQL_PASS = 'ss'/MYSQL_PASS = ' '/" userapiconfig.py
 sed -i "s/MYSQL_DB = 'shadowsocks'/MYSQL_DB = 'sspanel'/" userapiconfig.py
+
+# Make New Run Script
+echo '#!/bin/bash' > snowrun.sh
+echo 'cd `dirname $0`' >> snowrun.sh
+echo 'eval $(ps -ef | grep "[0-9] python server\\.py m" | awk' "'"'{print "kill "$2}'"'"')' >> snowrun.sh
+echo 'ulimit -n 512000' >> snowrun.sh
+echo 'mkdir -p /snow/_shadowsocks_log/' >> snowrun.sh
+echo 'nice -n -15 nohup python server.py m>> /snow/_shadowsocks_log/ssr-`date '"'"+%Y%m%d"'"'`.log 2>&1 &' >> snowrun.sh
